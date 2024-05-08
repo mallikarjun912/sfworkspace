@@ -1,15 +1,21 @@
 package org.employee.service;
 
 import org.employee.beans.Employee;
+import org.employee.dao.EmployeeDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
+	@Autowired
+	EmployeeDao dao;
+	
     List<Employee> empList = new ArrayList<>();
     public EmployeeServiceImpl(){
         empList.add(new Employee(101,"arjun","trainer",5000));
@@ -19,18 +25,27 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
     @Override
     public String addEmployee(Employee employee) {
-        empList.add(employee);
-        return "employee object inserted";
+      //  empList.add(employee);
+    	int rows = dao.addEmployee(employee);
+    	if(rows>0)
+    		return "employee object inserted";
+    	else
+    		return "not inserted";
     }
 
     @Override
     public List<Employee> findAllEmployees() {
-        return empList;
+        return dao.getAllEmployees();
     }
 
     @Override
     public Employee findById(int id) {
-        return null;
+		/*
+		 * Optional<Employee> employee = empList.stream().filter((e)->e.getEmpId()==id)
+		 * .map((emp)->emp) .findAny(); Employee empl = employee.get();
+		 */
+    	
+        return dao.getEmployeeById(id);
     }
 
     @Override
@@ -43,11 +58,19 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public String updateEmployee(Employee employee) {
-        return "";
+    	int rows = dao.updateEmployee(employee);
+    	if(rows>0)
+    		return "updated";
+    	else
+    		return "Not-updated";
     }
 
     @Override
     public String deleteEmployee(int empId) {
-        return "";
+    	int rows = dao.deleteEmployee(empId);
+    	if(rows>0)
+    		return "deleted";
+    	else
+    		return "not-deleted";
     }
 }
