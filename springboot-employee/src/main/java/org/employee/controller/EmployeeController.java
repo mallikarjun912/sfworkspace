@@ -2,6 +2,8 @@ package org.employee.controller;
 
 import org.employee.beans.Employee;
 import org.employee.service.EmployeeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/empl")
 public class EmployeeController {
+	private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
     @Autowired
     EmployeeService service;
@@ -23,11 +26,14 @@ public class EmployeeController {
     
     @GetMapping
     public ResponseEntity<List<Employee>> getALLEmployees() {
+    	logger.info("** inside EmployeeController.getAllEmployees() ** ");
         List<Employee> list = service.findAllEmployees();
+        logger.info("** exiting EmployeeController.getAllEmployees() ** ");
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
     @GetMapping("/byid/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") int id){
+    
     	Employee emp = service.findById(id);
     	return new ResponseEntity<Employee>(emp,HttpStatus.OK);
     }
