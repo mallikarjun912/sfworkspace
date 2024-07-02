@@ -12,9 +12,9 @@ public class AddStudent {
 		EntityTransaction transaction = manager.getTransaction();
 		
 		Student student = new Student();
-		student.setRno(451);
-		student.setStudentName("Arjun");
-		student.setTotal(550);
+		student.setRno(345);
+		student.setStudentName("Johnson");
+		student.setTotal(950);
 		
 		transaction.begin();
 		manager.persist(student);

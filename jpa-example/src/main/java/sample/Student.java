@@ -3,10 +3,12 @@ package sample;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table
+@NamedQuery(name = "findAll", query = "select std from Student std")
 public class Student {
 	@Id
 	private int rno;
