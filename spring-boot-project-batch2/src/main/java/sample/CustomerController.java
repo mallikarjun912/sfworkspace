@@ -12,9 +12,20 @@ public class CustomerController {
 	@Autowired
 	CustomerRepo repo;
 	
+	@Autowired
+	CustomerService service;
+		
 	@PostMapping
 	public String addCustomer(@RequestBody Customer cust) {
 		repo.save(cust);
 		return "customer added successfully";
 	}
+	
+	@PostMapping("/customerinfo")
+	public String addCustomerDetails(@RequestBody CustomerDto dto) {
+		String str = service.addCustomerInfo(dto);
+		return str;
+	}
+	
+	
 }
