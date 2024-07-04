@@ -43,6 +43,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- Add this plugin for log file appenders-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version><!--$NO-MVN-MAN-VER$-->
+			</plugin>
 		</plugins>
 		<finalName>samplebootbatch2library</finalName>
 	</build>

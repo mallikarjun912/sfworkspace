@@ -1,0 +1,7 @@
+2024-07-04 09:43:18,750 INFO org.library.LibraryApplication [restartedMain] Starting LibraryApplication using Java 17.0.10 on HP with PID 21180 (D:\Corporate Workspaces\salesforce\springboot-datajpa-library-example\target\classes started by malli in D:\Corporate Workspaces\salesforce\springboot-datajpa-library-example)
+2024-07-04 09:43:18,752 DEBUG org.library.LibraryApplication [restartedMain] Running with Spring Boot v2.6.11, Spring v5.3.22
+2024-07-04 09:43:18,752 INFO org.library.LibraryApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-07-04 09:43:27,087 INFO org.library.LibraryApplication [restartedMain] Started LibraryApplication in 8.701 seconds (JVM running for 9.321)
+2024-07-04 09:43:39,509 INFO org.library.controller.BookController [http-nio-8484-exec-3] ** inside BookController.findAllBooks() 
+2024-07-04 09:43:39,509 INFO org.library.service.BookServiceImpl [http-nio-8484-exec-3] ** inside and exiting from BookServiceImpl.findAllBooks() 
+2024-07-04 09:43:39,616 INFO org.library.controller.BookController [http-nio-8484-exec-3] ** exiting from BookController.findAllBooks() 

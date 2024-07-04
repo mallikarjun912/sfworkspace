@@ -47,6 +47,7 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	public List<Book> findAllBooks() {
+		logger.info("** inside and exiting from BookServiceImpl.findAllBooks() ");
 			return repo.findAll();
 	}
 

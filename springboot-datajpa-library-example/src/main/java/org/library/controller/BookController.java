@@ -33,7 +33,9 @@ public class BookController {
 	
 	@GetMapping
 	public ResponseEntity<List<Book>>  findAllBooks(){
+		logger.info("** inside BookController.findAllBooks() ");
 		List<Book> booksList = service.findAllBooks();
+		logger.info("** exiting from BookController.findAllBooks() ");
 		return new ResponseEntity<List<Book>>(booksList,HttpStatus.OK);
 	}
 	
